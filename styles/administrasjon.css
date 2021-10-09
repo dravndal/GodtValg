@@ -1,0 +1,388 @@
+/* administrasjon.css laget av Kevin André Torgrimsen Nordli. Sist endret 01.06.2021 av Kevin André Torgrimsen Nordli. */
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 16px;
+}
+
+#header {
+	text-align: center;
+	padding-bottom: 16px;
+}
+
+.administration-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.administration-list-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 16px;
+    height: 200px;
+    width: 300px;
+    transition: 0.3s all;
+}
+
+.administration-list-item:hover {
+    background-color: #2998cd;
+}
+
+.administration-list-item:hover .administration-list-text {
+    color: #f2f2f2;
+}
+
+.administration-list-item:hover .administration-list-icon {
+    filter: invert(1);
+    width: 88px;
+    height: 88px;
+    min-width: 88px;
+}
+
+.administration-list-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+}
+
+.administration-list-item + .administration-list-item {
+    margin-top: 32px;
+}
+
+.administration-list-icon {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    filter: invert(0.2);
+    margin-bottom: 8px;
+    transition: 0.3s all;
+}
+
+.administration-list-text {
+    font-size: 1.3rem;
+    color: #383838;
+    transition: 0.3s all;
+}
+
+.administration-section {
+	display: flex;
+	flex-direction: column;
+	color: #000000;
+	width: 360px;
+}
+
+#create-new-poll-section {
+    background-color: #f2f2f2;
+	border-radius: 5px;
+	padding: 16px;
+	border: 1px solid #e0e0e0;
+}
+
+.poll-sort-by-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 360px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.poll-sort-by-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	color: #222222;
+    font-size: 1rem;
+    width: 32%;
+    cursor: pointer;
+}
+
+.poll-sort-by-button {
+    margin-bottom: 8px;
+}
+
+.table-row-clickable {
+    cursor: pointer;
+}
+
+.table-row-clickable:hover {
+    background-color: #9ad2eb;
+}
+
+.border-bottom {
+    height: 3px;
+    width: 80%;
+    transition: 0.3s all;
+    background-color: #6e6e6e;
+}
+
+.poll-sort-by-list-item:hover:not(.poll-sort-by-list-item-active) .border-bottom {
+    background-color: #2998cd80;
+    width: 100%;
+}
+
+.poll-sort-by-list-item-active .border-bottom {
+    background-color: var(--main-color);
+    width: 100%;
+}
+
+.choice-button-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.choice-button + .choice-button {
+    margin-top: 16px;
+}
+
+.choice-button {
+    padding: 12px;
+	font-size: 1.2rem;
+	align-self: center;
+	border: none;
+	width: 300px;
+	background-color: var(--main-color);
+	color: #ffffff;
+	border-radius: 25px;
+	cursor: pointer;
+}
+
+.choice-button-red {
+    background-color: var(--notification-color);
+}
+
+.choice-button-disabled {
+    cursor: unset;
+    background-color: #bbbbbb;
+}
+
+.choice-button-disabled-text {
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.choice-button-checked {
+    cursor: unset;
+    background-color: #32b332;
+}
+
+h1, h2, span {
+	text-align: center;
+}
+
+h2 {
+    margin-bottom: 16px;
+}
+
+/* Søkebar */
+.searchbar {
+	position: relative;
+	width: 100%;
+    margin-bottom: 32px;
+}
+
+/* Styling til input-feltet til søkebaren */
+.searchbar-input {
+	background-color: #ffffff;
+	padding: 0 16px 0 42px;
+	height: 40px;
+	border: none;
+	width: 100%;
+	font-size: 1.1rem;
+    border: 1px solid #afafaf;
+}
+
+/* Forstørrelsesglass-ikonet */
+.searchbar::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 16px;
+	transform: translate(0, -50%);
+	background-image: url(../img/icons/search.svg);
+	background-repeat: no-repeat;
+	min-width: 16px;
+	min-height: 16px;
+    filter: invert(0.4);
+	background-size: 16px 16px;
+}
+
+#user-table-container, .table-container {
+    max-width: 100%;
+    overflow: auto;
+    border-radius: 5px;
+}
+
+.table-container {
+    margin-bottom: 32px;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table th {
+    padding: 12px 16px;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ebebeb;
+}
+
+table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+table tr:first-child {
+    background-color: #2998cd;
+    color: #f2f2f2;
+}
+
+table td {
+    padding: 12px 16px;
+    color: #474747;
+}
+
+select {
+    padding: 4px;
+    width: 100%;
+}
+
+.delete-button {
+    width: 100%;
+    height: 100%;
+    background-color: #c94c4c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-color: #c94c4c;
+}
+
+.delete-button:hover {
+    background-color: #ee4b4b;
+    border-color: #ee4b4b;
+}
+
+.delete-button-cell {
+	text-align: center;
+	white-space: nowrap;
+	width: 96px;
+}
+
+.not-found {
+    display: inline-block;
+    color: #3d3d3d;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+}
+
+.back-to-top-link {
+    margin-top: 16px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin: 0 0 16px 0;
+}
+
+.styled-input {
+	width: 100%;
+	padding: 0 8px 8px 0;
+	margin-bottom: 16px;
+	border: none;
+	font-size: 1.1rem;
+	border-bottom: 1px solid #333333;
+	background-color: unset;
+}
+
+/*label-ene til skjema-feltene*/
+label {
+	font-size: 0.9rem;
+	margin: 8px 0 2px;
+	align-self: flex-start;
+}
+
+/*knappen til skjemaene*/
+.form-button {
+	padding: 12px;
+	font-size: 1.2rem;
+	align-self: center;
+	border: none;
+	width: 100%;
+	background-color: var(--main-color);
+	margin: 16px 0;
+	color: #ffffff;
+	border-radius: 25px;
+	cursor: pointer;
+}
+
+/* Feilmelding */
+.form-error-message {
+	display: flex;
+	align-items: center;
+	align-self: center;
+	color: var(--notification-color);
+	font-weight: 600;
+}
+
+/* Nødvendig klasse for når det utføres AJAX og vi ikke vil at feilmelding skal vises uten grunn */
+.form-error-message-hidden {
+    display: none;
+}
+
+/*styling på ikonet som kommer med feilmeldingen til skjemaene*/
+.form-error-message img {
+	margin-right: 6px;
+}
+
+@media only screen and (min-width: 1200px) { /*regler for desktop*/
+    .administration-list {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .administration-list-item + .administration-list-item {
+        margin-top: 0;
+        margin-left: 32px;
+    }
+
+    .administration-section {
+        width: 900px;
+    }
+
+    #create-new-poll-section {
+        width: 360px;
+    }
+
+    .poll-sort-by-list {
+        width: 900px;
+    }
+
+    .poll-sort-by-list-item {
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,95 @@
+/* min-side.css laget av Daniel Ravndal. Sist endret 02/11/2020 av Daniel Ravndal */
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 16px;
+}
+
+#header {
+	text-align: center;
+	padding-bottom: 16px;
+}
+
+.profile-section {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 360px;
+}
+
+.profile-section-filled-background {
+	background-color: #f6f6f6;
+	border: 1px solid #e0e0e0;
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.user-info {
+	display: flex;
+	flex-direction: column;
+	word-break: break-word; /* Lager linjeskift om navnet er langt */
+	margin-bottom: 16px;
+}
+
+.user-name {
+	font-weight: 700;
+	font-size: 1.1rem;
+	margin-bottom: 16px;	
+}
+
+.user-email, .user-type {
+	font-weight: normal;
+	font-size: 0.9rem;
+	color: #555555;
+	margin-bottom: 16px;
+}
+
+.user-type {
+	margin-bottom: 8px;
+}
+
+.user-about-label {
+	color: #000000;
+	font-weight: 700;
+	font-size: 1.1rem;
+	margin-bottom: 2px;
+}
+
+.button-wrapper{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.profile-button {
+	padding: 12px;
+	font-size: 1.2rem;
+	align-self: center;
+	border: none;
+	width: 300px;
+	background-color: var(--main-color);
+	color: #ffffff;
+	border-radius: 25px;
+	cursor: pointer;
+}
+
+.profile-button:hover {
+	background-color: var(--main-color-hover);
+}
+
+.profile-button + .profile-button {
+	margin-top: 16px;
+}
+
+.form-error-message {
+	margin-top: 10px;
+	text-align: center;
+	color: var(--notification-color);
+	font-weight: 600;
+}
+
+/* Desktop-regler */
+/* @media only screen and (min-width: 1200px) {
+} */

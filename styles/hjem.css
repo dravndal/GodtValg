@@ -1,0 +1,57 @@
+/* hjem.css laget av Kevin André Torgrimsen Nordli. Sist endret 14.10.2020 av Kevin André Torgrimsen Nordli. */
+
+/* Hovedinnhold */
+main {
+	display: flex;
+	padding: 16px;
+	justify-content: center;
+	height: auto;
+}
+
+/* Call to action på hjemmesiden */
+#cta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 90ch; /* Character units for å begrense bredden til ca. 90 tegn */
+	text-align: center;
+	margin-top: 96px;
+}
+/* Overskriften til CTA */
+.cta-heading {
+	font-size: 3rem;
+	margin: 0 0 32px 0;
+	word-spacing: -0.25rem; /* Litt kortere avstand mellom ordene */
+	color: #000000;
+}
+/*Avsnitt til CTA*/
+.cta-paragraph {
+	font-size: 1.2rem; /* Fontstørrelsen til avsnittet mindre enn heading*/
+	line-height: 1.8; /* Litt mer høyde mellom linjene */
+	margin: 0 0 32px 0;
+	color: #333333;
+}
+/*knappen til CTA*/
+.cta-btn {
+	font-size: .95rem;
+	cursor: pointer;
+	background-color: var(--main-color);
+	text-transform: uppercase; /* Tving store bokstaver på knappen */
+	border-radius: 26px;
+	padding: 16px 26px;
+	letter-spacing: 1px; /* Et hint av ekstra mellomrom på teksten */
+	font-weight: 600;
+	transition: background-color 0.2s linear;
+	color: #ffffff;
+}
+
+.cta-btn:hover {
+	background-color: var(--main-color-hover);
+}
+
+/* Regler for desktop */
+@media only screen and (min-width: 1200px) {
+	#cta {
+		margin-top: 192px; /* litt mer plass mellom navbar og CTA elementet enn på mobil*/
+	}
+}

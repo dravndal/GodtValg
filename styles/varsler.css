@@ -1,0 +1,53 @@
+/* varsler.css laget av Daniel Ravndal og Dennis Næss. Sist endret 01/06/2021 av Daniel Ravndal */
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 16px;
+}
+
+#header {
+	text-align: center;
+	padding-bottom: 16px;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 360px;
+}
+
+.notification-list {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+}
+
+.notification-list-item + .notification-list-item{
+	margin-top: 16px;
+}
+
+.notification-list-item:not(.notification-list-item:last-child) {
+	padding-bottom: 16px;
+	border-bottom: 1px solid black;
+}
+
+.notification-link {
+	display: block;
+	padding: 8px;
+	background-color: var(--main-color);
+	color: #ffffff;
+	width: 160px;
+	border-radius: 25px;
+	margin: 8px auto 0 auto;
+}
+
+.notification-sender {
+	font-weight: 700;
+}
+
+.notification-poll {
+	font-style: italic;
+}

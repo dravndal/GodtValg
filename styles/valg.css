@@ -1,0 +1,253 @@
+/* valg.css laget av Leander Didriksen. Sist endret 14.05.2021 av Leander Didriksen. */
+
+/* Hovedinnhold */
+main {
+	display: flex;
+	justify-content: center;
+	height: auto;
+	padding: 16px;
+}
+
+/* Listen med kandidater */
+#poll {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	width: 240px;
+	align-self: center;
+}
+
+/*span-elementet under overskriften*/
+.description {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 32px;
+}
+
+.description-date + .description-date {
+	margin-top: 16px;
+}
+
+.description-date {
+	color: #222222;
+}
+
+h2 {
+	margin-bottom: 16px;
+}
+
+/*wrapper for alle kortene */
+.candidate-list {
+	margin: auto;
+	display: flex;
+	list-style: none;
+	color: #000000;
+	overflow-x: auto; /*horisontal scrollbar*/
+	-webkit-overflow-scrolling: touch; /*touch-funksjonalitet*/
+	scroll-snap-type: x mandatory; /*snap mellom kortene*/
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	width: 240px;
+	height: auto;
+	max-height: 380px;
+	border-radius: 5px;
+}
+
+/*styling for kandidatkort*/
+.candidate-list-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-shrink: 0;
+	width: 260px;
+	padding: 32px;
+	scroll-snap-align: start;
+	background-color: #fafafa;
+	scroll-behavior: smooth; /*smidige overganger*/
+}
+
+/*fjerner scrollbar*/
+.candidate-list-item::-webkit-scrollbar {
+  display: none;
+}
+
+/*bildet på kandidatkortene*/
+.candidate-picture {
+	border-radius: 50%;
+	margin-bottom: 16px;
+	object-fit: cover;
+	preserveAspectRatio: xMidYMid slice;
+}
+
+/*navn på kandidatkortene*/
+.candidate-name {
+	font-size: 1.1rem;
+	font-weight: 700;
+	text-align: center;
+	color: #383838;
+	margin-bottom: 32px;
+}
+
+.register-candidate-icon {
+	margin-bottom: 16px;
+	filter: invert(0.2);
+}
+
+/*knappen på kandidatkortene*/
+.candidate-button {
+	padding: 8px 16px;
+	font-size: 1.1rem;
+	border: none;
+	background-color: var(--main-color);
+	color: #ffffff;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
+}
+
+/*styling for pilene til kandidatkortene*/
+.candidate-button-previous, .candidate-button-next {
+	display: block;
+	width: 40px;
+	height: 40px;
+	top: 62%;
+	transform: translate(0, 50%); /* Gjør at elementet sammen med top: 50% sentreres fra midten av */
+	position: absolute;
+	border: none;
+	cursor: pointer;
+	background-color: unset;
+}
+
+/*litt mellomrom mellom pilene og kortene*/
+.candidate-button-previous {
+	right: 102%;
+}
+
+.candidate-button-next {
+	left: 102%;
+}
+
+.candidate-info {
+	position: fixed;
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	padding: 32px;
+	top: 68px;
+	bottom: 16px;
+	line-height: 1.2;
+	overflow-y: auto;
+	background-color: #f0f0f0;
+	border-radius: 5px;
+	z-index: 3;
+}
+
+.candidate-info-open{
+	display:flex;
+}
+
+.candidate-info-close {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	cursor: pointer;
+}
+
+.candidate-info-close span {
+	font-size: 0.8rem;
+}
+
+.candidate-info .candidate-picture {
+	margin-bottom: 16px;
+}
+
+.candidate-info p {
+	width: 280px;
+}
+
+.candidate-button-report, .candidate-button-vote {
+	width: 120px;
+}
+
+.candidate-button-report{
+	background-color: var(--notification-color);
+	margin-right: 16px;
+}
+
+.candidate-button-report:hover{
+	background-color: var(--notification-color-hover);
+}
+
+.candidate-button-vote:hover{
+	background-color: var(--main-color-hover);
+}
+.candidate-button-wrapper{
+	display: inline-block;
+	margin-top: 16px;
+	padding-bottom: 16px;
+}
+.candidate-info-background{
+	display: block;
+	position: fixed;
+	top: 0;
+	/*dekker hele skjermen*/
+	min-width: 100%;
+	min-height: 100%;
+	transition: background-color 0.2s linear;
+	cursor: pointer;
+	visibility: hidden; /*for å skjule det frem til hamburgermenyen blir klikket på*/
+	z-index: 2; /*så det ligger foran alt utenom hamburgermenyen og modalen*/
+}
+
+@media only screen and (min-width: 1200px) { /*regler for desktop*/
+	/*wrapper for alt innholdet*/
+	#poll {
+		display: flex;
+		flex-direction: column; /*så teksten kommer over kandidatkortene*/
+		align-items: center;
+		padding: 0;
+		width: unset;
+	}
+
+	/*gjør om kortene til en grid for desktop*/
+	.candidate-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 24px;
+		margin: 0;
+		overflow-x: unset;
+		width: unset;
+		border-radius: unset;
+		max-height: unset;
+	}
+
+	/*endrer på layoutet til kortene*/
+	.candidate-list-item {
+		border-radius: 5px;
+		padding: 32px;
+		border: 1px solid #eeeeee;
+		background-color: #fafafa;
+	}
+
+	/*skjuler pilene*/
+	.candidate-button-next, .candidate-button-previous {
+		display: none;
+	}
+	/*annerledes størrelse på modal på desktop*/
+	.candidate-info{
+		top: 15%;
+		left: 50%;
+		bottom: unset;
+		transform: translate(-50%, 0);
+	}
+
+	.candidate-info p{
+		width: 60ch;
+		margin: 8px 0;
+	}
+}

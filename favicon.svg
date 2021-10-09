@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="favicon.svg"
+   id="svg11"
+   version="1.1"
+   viewBox="0 0 142.52 148">
+  <metadata
+     id="metadata15">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="Layer_2"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="1912"
+     inkscape:cy="64.194363"
+     inkscape:cx="55.002041"
+     inkscape:zoom="2.0305431"
+     showgrid="false"
+     id="namedview13"
+     inkscape:window-height="1017"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:#f6f6f6;}.cls-2{fill:#29cd5e;}</style>
+  </defs>
+  <g
+     data-name="Layer 2"
+     id="Layer_2">
+    <path
+       id="path6"
+       d="M122.39,99.26v28.61H20.13V20.13H124.56L142.52,0H17.93A18,18,0,0,0,0,17.93V130.07A18,18,0,0,0,17.93,148H124.58a18,18,0,0,0,17.94-17.93V74.85Z"
+       class="cls-1" />
+    <path
+       style="fill:#2998cd;fill-opacity:1"
+       id="path8"
+       d="M142.52,0,84.09,65.48A5.75,5.75,0,0,1,76,66L54.27,46.62a5.76,5.76,0,0,0-8.12.47l-12.47,14a5.74,5.74,0,0,0,.47,8.12l26,23.16,0,0,18.29,16.29a5.74,5.74,0,0,0,8.12-.47l56-62.51Z"
+       class="cls-2" />
+  </g>
+</svg>

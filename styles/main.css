@@ -1,0 +1,287 @@
+/* main.css laget av Kevin André Torgrimsen Nordli. Sist endret 01.06.2021 av Kevin André Torgrimsen Nordli. */
+
+/* Globale variabler */
+:root {
+	--main-color: #2998cd;
+	--main-color-hover: #53a3c9;
+	--notification-color: #ff4646;
+	--notification-color-hover: #ff5454;
+}
+
+/* Enkel CSS reset */
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Styling av grunnleggende elementer */
+html {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #f9f9f9;
+}
+
+body {
+	display: flex; /* Benytter oss av hele body som et flex-element for å lettere kunne bestemme flyt og posisjonering */
+	flex-direction: column;
+	background: url(../img/bg.svg) no-repeat; /* Legger til bølgebakgrunnen nederst på alle sidene */
+	background-position: bottom;
+	background-size: contain;
+	background-color: #ffffff; /* Gjør resten av bakgrunnen hvit */
+	color: #000000;
+	min-height: 100vh; /* Minst hele høyden på skjermen */
+}
+
+a {
+	text-decoration: none; /* Ta vekk underlinjer */
+}
+
+h1 {
+	margin-bottom: 16px;
+	font-size: 1.5rem;
+}
+
+/* Utility-klasser */
+.description {
+	margin-bottom: 16px;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+/* Navigasjonsbar */
+.navbar {
+	display: flex;
+	position: sticky; /* Plasserer sammen med top: 0 navbaren på toppen av skjermen, og vil alltid bli der uansett om du scroller */
+	justify-content: space-between; /* Plasser elementene helt ut til sidene */
+	align-items: center;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #d9d9d9;
+	top: 0;
+	padding: 16px;
+	width: 100%;
+	height: 54px;
+	z-index: 5;
+}
+
+/* Liten hjelpe-div for å plassere varselikonet og hamburgerknappen på høyre side */
+.navbar-right {
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse; /* Så varselikonet kommer før hamburgermenyen på mobil, dette er en midlertidig løsning på grunn av javascript */
+}
+
+.navbar-button {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	background-color: none;
+	border-radius: 10px;
+	padding: 6px;
+}
+
+.navbar-button:hover {
+	background-color: rgba(90, 90, 90, 0.4);
+}
+
+.navbar-list {
+	display: flex;
+	flex-direction: column; /* Linkene listes nedover i hamburgermenyen på mobil */
+	position: fixed; /* På samme måte som med navbar settes listen slik at den ikke forsvinner når man scroller */
+	overflow-y: auto;
+	overflow-x: hidden; /* Nødvendig for å skjule horisontal overflow på grunn av vertikal scrollbar i hamburger-menyen */
+	list-style: none;
+	background-color: #f9f9f9;
+	transform: translateX(100%);
+	visibility: hidden;
+	transition: transform 0.2s ease-in-out;
+	color: #000000;
+	top: 54px;
+	right: 0;
+	bottom: 0;
+	z-index: 5; /* For å forhindre at andre elementer legger seg over */
+}
+
+.navbar-list-item {
+	min-width: max-content;
+}
+
+/* Klasse for å vise hamburgermenyen */
+.navbar-list-open {
+	visibility: visible;
+	transform: translateX(0);
+}
+
+.navbar-link {
+	display: flex;
+	align-items: center;
+	padding: 16px;
+	flex: 0;
+	color: #000000;
+	transition: color 0.2s linear, background-color 0.2s linear;
+}
+
+/* Legger til hovereffekt på alle navigasjonsknappene utenom siden du er på */
+.navbar-link-background:hover:not(.navbar-link-background-active) {
+	background-color: var(--main-color-hover);
+	color: #ffffff;
+}
+
+/* Invertering av fargene på ikonet når man hoverer over navigasjonsknappene */
+.navbar-link-background:hover .navbar-link-icon, .navbar-link-background-active .navbar-link-icon {
+	filter: invert(1);
+}
+
+/* Legger til bakgrunnsfarge og tekstfarge på navigasjonsknappen for siden du er på */
+.navbar-link-background-active {
+	background-color: var(--main-color-hover);
+	color: #ffffff;
+}
+
+/* Ikonene til navigasjonsknappene */
+.navbar-link-icon {
+	margin: 0 8px 0 0;
+	filter: invert(0.3);
+	transition: filter 0.2s linear;
+}
+
+/* Skilletegnet mellom nominasjonsknappen og varselikonet */
+.navbar-divider {
+	background-color: #d9d9d9;
+	min-height: 1px;
+	min-width: 100%;
+	margin: 16px 0;
+}
+
+.navbar-menu-background {
+	display: block;
+	position: fixed;
+	top: 0;
+	min-width: 100%;
+	min-height: 100%;
+	transition: background-color 0.2s linear;
+	cursor: pointer;
+	visibility: hidden; /* For å skjule det frem til hamburgermenyen blir klikket på */
+	z-index: 4; /* Så det ligger foran alt utenom hamburgermenyen */
+}
+
+.background-open {
+	visibility: visible !important; /* Viser innholdet. !important var et nødvendig onde her på grunn av specificity */
+	background-color: rgba(0, 0, 0, 0.5); /* Halvveis transparent bakgrunn */
+}
+
+.notification-wrapper {
+	position: relative;
+	margin-right: 8px;
+}
+/* Varselikonet */
+.notification-button {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+}
+
+/* Antall varsler på varselikonet */
+.notification-wrapper::before {
+	content: attr(data-count);
+	position: absolute; /* Posisjonerer seg på varselikonet */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: -6px;
+	right: -6px;
+	width: 16px;
+	height: 16px;
+	background-color: var(--notification-color);
+	color: #ffffff;
+	border-radius: 50%;
+	z-index: 2;
+	font-size: 0.8rem;
+	pointer-events:none;
+}
+
+/* Fjerner den lille varselen på varselikonet dersom det er 0 varsler i attributten*/
+.notification-wrapper[data-count="0"]::before {
+	display: none;
+}
+
+.notification-button {
+	filter: invert(0.3);
+}
+
+.back-button {
+	display: flex;
+	align-items: center;
+	background-color: var(--main-color);
+	color: #ffffff;
+	border-radius: 5px;
+	padding: 8px;
+	margin-bottom: 16px;
+}
+
+.back-button img {
+	min-width: 16px;
+	width: 16px;
+	height: 16px;
+	filter: invert(1);
+	margin-right: 4px;
+}
+
+/* Regler for desktop */
+@media only screen and (min-width: 1200px) {
+	.navbar {
+		padding: 0 32px;
+	}
+	/* Fjern hamburgermeny */
+	.navbar-button {
+		display: none;
+	}
+
+	.navbar-list {
+		list-style: none;
+		display: flex;
+		flex-shrink: 0;
+		position: unset;
+		flex-direction: row; /* Setter knappene horisontalt istedenfor vertikalt */
+		background-color: unset;
+		align-items: center;
+		transform: translateX(0);
+		visibility: visible;
+		width: unset;
+		margin: 0;
+		overflow: visible;
+	}
+
+	/* Skilletegnet mellom nominasjonsknappen og varselikonet */
+	.navbar-divider {
+		height: 26px;
+		min-width: 2px;
+		margin: 0 16px;
+	}
+
+	.navbar-link {
+		border-bottom: 2px solid transparent;
+		color: #222222;
+		transition: all 0.2s linear;
+	}
+
+	/* Legger til hovereffekt på alle navigasjonsknappene utenom siden du er på */
+	.navbar-link-background:hover:not(.navbar-link-background-active) {
+		border-color: rgba(41, 152, 205, 0.5);
+		background-color: unset;
+		color: #000000;
+	}
+
+	/* Invertering av fargene på ikonet når man hoverer over navigasjonsknappene */
+	.navbar-link-background:hover .navbar-link-icon, .navbar-link-background-active .navbar-link-icon {
+		filter: invert(0);
+	}
+
+	/* Legger til bakgrunnsfarge og tekstfarge på navigasjonsknappen for siden du er på */
+	.navbar-link-background-active {
+		border-color: var(--main-color);
+		background-color: unset;
+		color: unset;
+	}
+}

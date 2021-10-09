@@ -1,0 +1,81 @@
+/* kandidat.css laget av Simen Jensen. Sist endret 01.06.2021 av Kevin André Torgrimsen Nordli. */
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 16px;
+}
+
+#candidate {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding: 20px;
+	background-color: #f6f6f6;
+	border: 1px solid #e0e0e0;
+	border-radius: 5px;
+	width: 360px;
+    word-break: break-word;
+}
+
+.candidate-image {
+    align-self: center;
+    border-radius: 50%;
+    margin-bottom: 16px;
+    object-fit: cover;
+	preserveAspectRatio: xMidYMid slice;
+}
+
+.candidate-name {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+}
+
+.candidate-info-label {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.candidate-info {
+    margin-bottom: 16px;
+}
+
+.block-text {
+    text-align: left;
+}
+
+.vote-button {
+    padding: 12px;
+    font-size: 1.2rem;
+    align-self: center;
+    border: none;
+    margin-top: 32px;
+    width: 100%;
+    background-color: var(--main-color);
+    color: #ffffff;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.vote-starts-at-message {
+	font-weight: 700;
+	margin-top: 32px;
+}
+
+.delete-button {
+    padding: 12px;
+	font-size: 1.2rem;
+	align-self: center;
+	border: none;
+	width: 100%;
+	background-color: var(--notification-color);
+	color: #ffffff;
+	border-radius: 25px;
+	cursor: pointer;
+}
+
+form {
+	margin-bottom: 0;
+}
